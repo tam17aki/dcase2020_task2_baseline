@@ -172,8 +172,8 @@ if __name__ == "__main__":
                     val_loss += loss.item()
 
             # average loss over whole mini-batches
-            train_loss /= len(train_loader.dataset)
-            val_loss /= len(val_loader.dataset)
+            train_loss /= len(train_loader)
+            val_loss /= len(val_loader)
 
             com.logger.info('Epoch: {} Average train_loss: {:.6f}, '
                             'Average val_loss: {:.6f}'.format(epoch, train_loss,
