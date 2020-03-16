@@ -18,6 +18,7 @@ import sys
 # import additional python-library
 ########################################################################
 import numpy
+import random
 import common as com
 import torch
 import torch.utils.data
@@ -123,8 +124,8 @@ if __name__ == "__main__":
                                power=param["feature"]["power"],)
         n_samples = len(dataset)
         train_size = int(n_samples * (1.0 - param["fit"]["validation_split"]))
-        subset1_indices = list(range(0, train_size))
-        subset2_indices = list(range(train_size, n_samples))
+        subset1_indices = list(random.sample(range(0, n_samples), train_size))
+        subset2_indices = list(set(range(0, n_samples)) - set(subset1_indices))
         train_dataset = Subset(dataset, subset1_indices)
         val_dataset = Subset(dataset, subset2_indices)
 
