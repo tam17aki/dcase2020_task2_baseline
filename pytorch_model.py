@@ -17,15 +17,16 @@ class Autoencoder(nn.Module):
         self.relu = nn.ReLU()
 
     def forward(self, x):
-        h = self.batchnorm1(self.relu(self.input_layer(x)))
-        h = self.batchnorm1(self.relu(self.interm_layer(h)))
-        h = self.batchnorm1(self.relu(self.interm_layer(h)))
-        h = self.batchnorm1(self.relu(self.interm_layer(h)))
-        h = self.batchnorm2(self.relu(self.interm2latent_layer(h)))
-        h = self.batchnorm1(self.relu(self.latent2interm_layer(h)))
-        h = self.batchnorm1(self.relu(self.interm_layer(h)))
-        h = self.batchnorm1(self.relu(self.interm_layer(h)))
-        h = self.batchnorm1(self.relu(self.interm_layer(h)))
+        h = self.relu(self.batchnorm1(self.input_layer(x)))   # 640->128
+        h = self.relu(self.batchnorm1(self.interm_layer(h)))  # 128->128
+        h = self.relu(self.batchnorm1(self.interm_layer(h)))  # 128->128
+        h = self.relu(self.batchnorm1(self.interm_layer(h)))  # 128->128
+        h = self.relu(self.batchnorm2(self.interm2latent_layer(h)))  # 128->8
+        h = self.relu(self.batchnorm1(self.latent2interm_layer(h)))  # 8->128
+        h = self.relu(self.batchnorm1(self.interm_layer(h)))  # 128->128
+        h = self.relu(self.batchnorm1(self.interm_layer(h)))  # 128->128
+        h = self.relu(self.batchnorm1(self.interm_layer(h)))  # 128->128
+
         x = self.output_layer(h)
 
         return x
