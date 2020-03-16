@@ -5,8 +5,6 @@ class Autoencoder(nn.Module):
     def __init__(self):
         super(Autoencoder, self).__init__()
 
-        self.original_dim = 640
-        self.latent_dim = 8
         self.input_layer = nn.Linear(640, 128)
         self.interm_layer1 = nn.Linear(128, 128)
         self.interm_layer2 = nn.Linear(128, 128)
