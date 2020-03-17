@@ -23,7 +23,7 @@ import sys
 import numpy
 from sklearn import metrics
 import common as com
-from pytorch_model import Autoencoder
+from pytorch_model import AutoEncoder
 import torch.utils.data
 ########################################################################
 
@@ -187,7 +187,7 @@ if __name__ == "__main__":
             sys.exit(-1)
 
         # define AE model
-        model = Autoencoder().to(device)
+        model = AutoEncoder().to(device)
         model.eval()
         model.load_state_dict(torch.load(model_file))
 
