@@ -23,7 +23,7 @@ import torch
 import torch.utils.data
 from torch import optim, nn
 from torch.utils.data.dataset import Subset
-from pytorch_model import Autoencoder
+from pytorch_model import AutoEncoder
 
 
 ########################################################################
@@ -142,7 +142,7 @@ if __name__ == "__main__":
             drop_last=False)
 
         com.logger.info("============== MODEL TRAINING ==============")
-        model = Autoencoder().to(device)
+        model = AutoEncoder().to(device)
 
         optimizer = optim.Adam(model.parameters())
         criterion = nn.MSELoss()
