@@ -10,16 +10,17 @@ class AutoEncoder(nn.Module):
     def __init__(self):
         super(AutoEncoder, self).__init__()
 
-        self.layers = [nn.Linear(640, 128),
-                       nn.Linear(128, 128),
-                       nn.Linear(128, 128),
-                       nn.Linear(128, 128),
-                       nn.Linear(128, 8),
-                       nn.Linear(8, 128),
-                       nn.Linear(128, 128),
-                       nn.Linear(128, 128),
-                       nn.Linear(128, 128),
-                       nn.Linear(128, 640), ]
+        layers = [nn.Linear(640, 128),
+                  nn.Linear(128, 128),
+                  nn.Linear(128, 128),
+                  nn.Linear(128, 128),
+                  nn.Linear(128, 8),
+                  nn.Linear(8, 128),
+                  nn.Linear(128, 128),
+                  nn.Linear(128, 128),
+                  nn.Linear(128, 128),
+                  nn.Linear(128, 640), ]
+        self.layers = nn.ModuleList(layers)
 
         self.bnorms = [nn.BatchNorm1d(128),
                        nn.BatchNorm1d(128),
