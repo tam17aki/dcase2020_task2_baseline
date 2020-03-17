@@ -45,6 +45,6 @@ class AutoEncoder(nn.Module):
         hidden = self.relu(self.bnorms[6](self.layers[6](hidden)))  # 128->128
         hidden = self.relu(self.bnorms[7](self.layers[7](hidden)))  # 128->128
         hidden = self.relu(self.bnorms[8](self.layers[8](hidden)))  # 128->128
-        output = self.layers[9](hidden)
+        output = self.layers[9](hidden)                             # 128->640
 
         return output
