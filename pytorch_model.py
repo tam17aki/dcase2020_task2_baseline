@@ -22,15 +22,16 @@ class AutoEncoder(nn.Module):
                   nn.Linear(128, 640), ]
         self.layers = nn.ModuleList(layers)
 
-        self.bnorms = [nn.BatchNorm1d(128),
-                       nn.BatchNorm1d(128),
-                       nn.BatchNorm1d(128),
-                       nn.BatchNorm1d(128),
-                       nn.BatchNorm1d(8),
-                       nn.BatchNorm1d(128),
-                       nn.BatchNorm1d(128),
-                       nn.BatchNorm1d(128),
-                       nn.BatchNorm1d(128), ]
+        bnorms = [nn.BatchNorm1d(128),
+                  nn.BatchNorm1d(128),
+                  nn.BatchNorm1d(128),
+                  nn.BatchNorm1d(128),
+                  nn.BatchNorm1d(8),
+                  nn.BatchNorm1d(128),
+                  nn.BatchNorm1d(128),
+                  nn.BatchNorm1d(128),
+                  nn.BatchNorm1d(128), ]
+        self.bnorms = nn.ModuleList(bnorms)
 
         self.relu = nn.ReLU()
 
