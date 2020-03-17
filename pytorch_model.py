@@ -10,7 +10,7 @@ class AutoEncoder(nn.Module):
     def __init__(self):
         super(AutoEncoder, self).__init__()
 
-        self.layres = [nn.Linear(640, 128),
+        self.layers = [nn.Linear(640, 128),
                        nn.Linear(128, 128),
                        nn.Linear(128, 128),
                        nn.Linear(128, 128),
