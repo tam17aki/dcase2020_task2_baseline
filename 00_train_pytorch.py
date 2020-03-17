@@ -143,7 +143,7 @@ if __name__ == "__main__":
         com.logger.info("============== MODEL TRAINING ==============")
         model = AutoEncoder().to(device)
 
-        optimizer = optim.Adam(model.parameters(), lr=0.001)
+        optimizer = optim.Adam(model.parameters())
         criterion = nn.MSELoss()
 
         epochs = param["fit"]["epochs"]
