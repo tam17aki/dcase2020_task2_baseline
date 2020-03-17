@@ -10,16 +10,16 @@ class AutoEncoder(nn.Module):
     def __init__(self):
         super(AutoEncoder, self).__init__()
 
-        self.layes = [nn.Linear(640, 128),
-                      nn.Linear(128, 128),
-                      nn.Linear(128, 128),
-                      nn.Linear(128, 128),
-                      nn.Linear(128, 8),
-                      nn.Linear(8, 128),
-                      nn.Linear(128, 128),
-                      nn.Linear(128, 128),
-                      nn.Linear(128, 128),
-                      nn.Linear(128, 640), ]
+        self.layres = [nn.Linear(640, 128),
+                       nn.Linear(128, 128),
+                       nn.Linear(128, 128),
+                       nn.Linear(128, 128),
+                       nn.Linear(128, 8),
+                       nn.Linear(8, 128),
+                       nn.Linear(128, 128),
+                       nn.Linear(128, 128),
+                       nn.Linear(128, 128),
+                       nn.Linear(128, 640), ]
 
         self.bnorms = [nn.BatchNorm1d(128),
                        nn.BatchNorm1d(128),
@@ -43,6 +43,6 @@ class AutoEncoder(nn.Module):
         hidden = self.relu(self.bnorms[6](self.layers[6](hidden)))  # 128->128
         hidden = self.relu(self.bnorms[7](self.layers[7](hidden)))  # 128->128
         hidden = self.relu(self.bnorms[8](self.layers[8](hidden)))  # 128->128
-        output = self.layers[9](hidden)                             # 128->640
+        output = self.layers[9](hidden)
 
         return output
