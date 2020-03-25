@@ -228,9 +228,8 @@ if __name__ == "__main__":
                         power=param["feature"]["power"])
 
                     # reconstruction through auto encoder in pytorch
-                    feed_data = torch.from_numpy(data).clone()
-                    feed_data.to(device)
-                    feed_data = feed_data.float()
+                    feed_data = torch.as_tensor(
+                        data, device=device, dtype=torch.float32)
                     with torch.no_grad():
                         pred = model(feed_data).to(
                             'cpu').detach().numpy().copy()
