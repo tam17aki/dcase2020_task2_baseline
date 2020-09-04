@@ -1,0 +1,33 @@
+dev_directory : ./dev_data
+eval_directory : ./eval_data
+model_directory: ./model
+result_directory: ./result
+result_file: result.csv
+
+max_fpr : 0.1
+
+feature:
+  n_mels: 128
+  frames : 5
+  n_fft: 8000
+  hop_length: 4000
+  power: 2.0
+
+model:
+  hidden_dim: 256
+  latent_dim: 8
+  n_hidden: 3
+
+training:
+  optimizer : adam
+  loss : mean_squared_error
+  epochs : 100
+  batch_size : 1024
+  shuffle : True
+  validation_split : 0.1
+  weight_decay: 0.1
+  learning_rate: 0.0001
+  lr_step_size: 50
+  lr_gamma: 0.5
+  grad_clip: 5
+  verbose : 1
